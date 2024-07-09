@@ -105,3 +105,102 @@ console.log("task 4:");
   }
   console.log("task 6:", arr);
 }
+
+//////////////////////
+
+/////// TASK 7 ///////
+
+//////////////////////
+
+{
+  for (let n = 1000, num = 0; n > 50; num++) {
+    n /= 2;
+    if (n < 50) {
+      console.log(
+        `Получится число: ${n}, количество итераций произведено: ${num}`
+      );
+    }
+  }
+}
+
+//////////////////////
+
+/////// TASK 8 ///////
+
+//////////////////////
+
+// {
+//   for (let amountOfNumber = 0, summ = 0; ; amountOfNumber++) {
+//     inputNumber = prompt("Введите число");
+//     summ += +inputNumber;
+//     arithmeticMean = summ / amountOfNumber;
+//     if (summ !== parseFloat(summ)) {
+//       console.log("Ошибка ввода, можно вводить только числа.");
+//       break;
+//     }
+//     if (inputNumber === "" || inputNumber == "0") {
+//       console.log(
+//         `Общая сумма: ${summ}. Среднее арифметическое: ${arithmeticMean}`
+//       );
+//       break;
+//     }
+//   }
+// }
+
+//////////////////////
+
+/////// TASK 9 ///////
+
+//////////////////////
+
+// Задание конечно, моё почтение
+
+{
+  // способ здорового человека
+  let str = "4 98 4 6 1 32 4 65 4 3 5 7 89 7 10 1 36 8 57";
+  let arr = str.split(" "),
+    min = Math.min(...arr),
+    max = Math.max(...arr);
+
+  console.log(`Самое маленькое: ${min}, Самое большое: ${max}`);
+}
+
+{
+  // способ курильщика
+  let string = "4 98 4 6 1 32 4 65 4 3 5 7 89 7 10 1 36 8 57";
+  let bufer = "",
+    max,
+    min;
+  for (let number = 0; number < string.length; number++) {
+    bufer += string[number];
+    if (+string[number] && !+string[number + 1]) {
+      if (typeof max !== "number" || bufer > +max) max = +bufer;
+      if (typeof min !== "number" || bufer < +min) min = +bufer;
+      bufer = "";
+    }
+  }
+  console.log(`Самое маленькое: ${min}, Самое большое: ${max}`);
+}
+
+//////////////////////
+
+/////// TASK 10 //////
+
+//////////////////////
+
+{
+  let n = 1209,
+    numbers = n.toString().split("");
+  let numbersLength = numbers.length;
+  let summ = 0;
+  for (let i = 0; i < numbersLength; i++) {
+    summ += +numbers[i];
+  }
+  let reverse = "";
+  for (let i = numbersLength - 1; i >= 0; i--) {
+    reverse += numbers[i];
+  }
+  console.log(
+    ` а. ${numbers}\n\n b. ${numbersLength}\n\n c. ${summ}\n\n d. ${reverse}`
+  );
+}
