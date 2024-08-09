@@ -156,17 +156,7 @@ console.log("task 4:");
 // Задание конечно, моё почтение
 
 {
-  // способ здорового человека
-  let str = "4 98 4 6 1 32 4 65 4 3 5 7 89 7 10 1 36 8 57";
-  let arr = str.split(" "),
-    min = Math.min(...arr),
-    max = Math.max(...arr);
-
-  console.log(`Самое маленькое: ${min}, Самое большое: ${max}`);
-}
-
-{
-  // способ курильщика
+  // решение курильщика
   let string = "4 98 4 6 1 32 4 65 4 3 5 7 89 7 10 1 36 8 57";
   let bufer = "",
     max,
@@ -174,11 +164,21 @@ console.log("task 4:");
   for (let number = 0; number < string.length; number++) {
     bufer += string[number];
     if (+string[number] && !+string[number + 1]) {
-      if (typeof max !== "number" || bufer > +max) max = +bufer;
-      if (typeof min !== "number" || bufer < +min) min = +bufer;
+      if (bufer > +max || typeof max !== "number") max = +bufer;
+      if (bufer < +min || typeof min !== "number") min = +bufer;
       bufer = "";
     }
   }
+  console.log(`Самое маленькое: ${min}, Самое большое: ${max}`);
+}
+
+{
+  // решение здорового человека
+  let str = "4 98 4 6 1 32 4 65 4 3 5 7 89 7 10 1 36 8 57";
+  let arr = str.split(" "),
+    min = Math.min(...arr),
+    max = Math.max(...arr);
+
   console.log(`Самое маленькое: ${min}, Самое большое: ${max}`);
 }
 
