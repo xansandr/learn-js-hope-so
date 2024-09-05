@@ -14,7 +14,9 @@ meta.setAttribute("charset", "UTF-8");
 
 let header = document.createElement("header"),
   header_container = document.createElement("div");
-(h1 = document.createElement("h1")), (subheader = document.createElement("p"));
+
+h1 = document.createElement("h1");
+subheader = document.createElement("p");
 
 h1.innerHTML = "Choose Your Option";
 subheader.innerHTML =
@@ -69,15 +71,25 @@ content_button.classList.add("content_button__font");
 let style = document.createElement("style");
 style.innerHTML = `
     @import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+    * {
+        margin: 0px;
+    }
+    body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
     .header_container__param {
         width: 800px;
-        height: 64px;
+        height: 84px;
         align-items: center;
+        margin-top: 50px;
     }
     .content__param {
         display: flex;
         flex-direction: row;
         width: 800px;
+        margin-top: 35px;
     }
     .card__param {
         display: flex;
@@ -86,6 +98,10 @@ style.innerHTML = `
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        background-color: white;
+        border: 1px solid rgb(232, 233, 237);
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
     }
     .firstLine__font {
         color: rgb(159, 163, 167);
@@ -99,7 +115,7 @@ style.innerHTML = `
     .content_header__param {
         width: 210px;
         height: 92px;
-        margin: 0px 0px;
+        margin: 19px;
     }
     .content_header__font {
         color: rgb(33, 33, 33);
@@ -113,12 +129,12 @@ style.innerHTML = `
     .content_subheader__param {
         width: 210px;
         height: 44px;
+        margin-top: 25px;
     }
     .content_subheader__font {
         color: rgb(159, 163, 167);
         font-family: OpenSans;
         font-size: 12px;
-        font-weight: 400;
         line-height: 22px;
         letter-spacing: 0px;
         text-align: center;
@@ -129,6 +145,7 @@ style.innerHTML = `
         border: 3px solid rgb(255, 200, 10);
         border-radius: 46px;
         background-color: white;
+        margin-top: 65px;
     }
     .content_button__font {
         color: rgb(33, 33, 33);
@@ -144,12 +161,33 @@ style.innerHTML = `
         line-height: 22px;
 
     }
-    .card_right__font {
+    .card_right {
+        background-color: #8F75BE;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    .card_right span:nth-child(1) {
         color: rgb(255, 200, 10);
+    }
+    .card_right .content_header__font {
+        color: rgb(255, 255, 255);
+    }
+    .card_right .content_subheader__font {
+        color: rgb(255, 255, 255);
+    }
+    .card_right .content_button__font {
+        background-color: rgb(143, 117, 190);
+        color: rgb(255, 255, 255);
     }
 `;
 document.head.appendChild(style);
 
 let card_right = card_left.cloneNode(true);
+// document.querySelector(card_right.firstLine)firstLine.innerHTML = "STUDIO";
+
+card_right.classList.add("card_right");
+
 content.appendChild(card_right);
-console.log(card_right.querySelector("li:nth-child(1)"));
+document.querySelector('.card_right span').innerHTML = 'STUDIO';
