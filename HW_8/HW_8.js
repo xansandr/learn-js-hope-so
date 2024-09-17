@@ -184,10 +184,7 @@ style.innerHTML = `
 `;
 document.head.appendChild(style);
 
-let card_right = card_left.cloneNode(true);
-// document.querySelector(card_right.firstLine)firstLine.innerHTML = "STUDIO";
-
+let card_right = card_left.cloneNode(true); 
 card_right.classList.add("card_right");
-
 content.appendChild(card_right);
 document.querySelector('.card_right span').innerHTML = 'STUDIO';
