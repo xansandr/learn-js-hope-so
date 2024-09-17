@@ -83,7 +83,7 @@ style.innerHTML = `
         width: 800px;
         height: 84px;
         align-items: center;
-        margin-top: 50px;
+        margin-top: 50px; 
     }
     .content__param {
         display: flex;
