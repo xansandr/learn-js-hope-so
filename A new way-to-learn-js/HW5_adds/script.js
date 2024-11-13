@@ -56,7 +56,7 @@
   }
   console.log(celsiusToFahrenheit(30)); // 86
 }
-
+{
 // Напишите функцию createArr(), которая создает массив, заполняемый "руками" (например, через prompt()), пока пользователь не введет пустую строку. Функция должна вернуть созданный массив.
 
 function createArr() {
@@ -75,3 +75,4 @@ function createArr() {
 }
 
 console.log(createArr()); // воркает
+}
