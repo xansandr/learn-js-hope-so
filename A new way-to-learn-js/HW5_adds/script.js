@@ -65,13 +65,13 @@ function createArr() {
   function promptInput() {
     const someWhat = prompt("Введите штота");
     if (someWhat == "") {
-      return result;
+      return;
     } else {
-      console.log(result);
       result.push(someWhat);
       promptInput();
     }
   }
+  return result;
 }
 
 console.log(createArr()); // воркает
