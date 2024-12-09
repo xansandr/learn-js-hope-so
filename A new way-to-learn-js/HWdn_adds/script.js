@@ -21,7 +21,7 @@
     ["Иван", "Катя", "Ольга", "Максим"],
     ["Минск", "Брест", "Гродно", "Могилев"],
   ];
-  let distanceArr = [0, 351, 276, 197]; // Вообще, хотелось бы сделать это условие не через массив, а используя объект, находя нужные значения по ключам, так что можно будет позже вернуться к этой задаче с новыми знаниями
+  let distanceArr = [0, 351, 276, 197]; // Вообще, хотелось бы сделать это условие не через массив, а используя объекты, находя нужные значения по ключам, так что можно будет позже вернуться к этой задаче с новыми знаниями
 
   // Честно говоря, еще когда я делал это задание в первый раз не совсем понял, зачем перегружать это всё вложенными циклами, но как говорится, забавное тз - результат хз
   for (i = 0; i < array.length - 1; i++) {
@@ -136,4 +136,32 @@
     }
   }
   console.log(getRandomPassword(3));
+}
+{
+  // 8. Создайте функцию, которая создает произвольный HTML-элемент в <body> в виде круга/овала/квадрата/прямоугольника. Функция должна принимать параметры: width, height, radius, color; создавать запись "<div style="width: 200px; height: 100px, border-radius: 5px; background-color: red;"></div>". Данное значение добавляйте через document.write. Подумайте о том, как сделать случайную генерацию фигур по вызову функции без параметров.
+  function createElement(width, height, radius, color) {
+    let getRandomInt = (max) => Math.floor(Math.random() * max);
+
+    !arguments.length ? createRandomElement(getRandomInt(4)) : createParamElement(width, height, radius, color);
+
+    function createRandomElement(figure) {
+      switch (figure) {
+        case 1: width = getRandomInt
+        case 2:
+        case 3:
+        case 4:
+      }
+    }
+
+    function createParamElement(width, height, radius, color) {
+      document.write(
+        `<div style="width: ${width}px; height: ${height}px, border-radius: ${radius}px; background-color: ${color};"></div>`
+      );
+    }
+
+    document.write(
+      `<div style="width: ${width}px; height: ${height}px, border-radius: ${radius}px; background-color: ${color};"></div>`
+    );
+  }
+  createElement();
 }
