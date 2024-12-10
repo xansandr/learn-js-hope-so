@@ -141,27 +141,44 @@
   // 8. Создайте функцию, которая создает произвольный HTML-элемент в <body> в виде круга/овала/квадрата/прямоугольника. Функция должна принимать параметры: width, height, radius, color; создавать запись "<div style="width: 200px; height: 100px, border-radius: 5px; background-color: red;"></div>". Данное значение добавляйте через document.write. Подумайте о том, как сделать случайную генерацию фигур по вызову функции без параметров.
   function createElement(width, height, radius, color) {
     let getRandomInt = (max) => Math.floor(Math.random() * max);
+    let getColor = () =>
+      "#" +
+      Math.floor(Math.random() * 16777215)
+        .toString(16)
+        .padStart(6, "0");
 
-    !arguments.length ? createRandomElement(getRandomInt(4)) : createParamElement(width, height, radius, color);
+    !arguments.length ? createRandomElement() : createParamElement(width, height, radius, color);
 
     function createRandomElement(figure) {
-      switch (figure) {
-        case 1: width = getRandomInt
-        case 2:
-        case 3:
-        case 4:
-      }
-    }
-
-    function createParamElement(width, height, radius, color) {
       document.write(
-        `<div style="width: ${width}px; height: ${height}px, border-radius: ${radius}px; background-color: ${color};"></div>`
+        `<div style="width: ${(width = getRandomInt(500))}px; height: ${(height = getRandomInt(2)
+          ? getRandomInt(500)
+          : width)}px; border-radius: ${(radius = getRandomInt(2)
+          ? getRandomInt(1000)
+          : 0)}px; background-color: ${(color = getColor())};"></div>`
       );
     }
-
-    document.write(
-      `<div style="width: ${width}px; height: ${height}px, border-radius: ${radius}px; background-color: ${color};"></div>`
-    );
+    function createParamElement(width, height, radius, color) {
+      document.write(
+        `<div style="width: ${width}px; height: ${height}px; border-radius: ${radius}px; background-color: ${color};"></div>`
+      );
+    }
   }
-  createElement();
+  createElement(100, 100, 100, "red"); // Работает
+  createElement(); // Работает
+}
+{
+  // [18+] Создайте функцию-цензор, которая проверяет текст на наличие нецензурных слов и заменяет их на "#".
+  let anyText = `"В сером городе, где каждый день напоминал предыдущий, одиночество казалось нестерпимым. Люди сливались в одну серую массу, а Яна, сжав кулаки, прокладывала путь сквозь толпу. "Какая же нахрен жизнь!" – думала она, чувствуя, как ветер шутит с ее волосами. Бросив взглянуть на небо, она заметила, что даже облака выглядят опустошенно. "Почему у всех так легко? Почему я, черт побери, должна каждый раз зажмуриваться от этой скуки?" Она присела на старую скамейку в парке и, посмотрев на прохожих, вдруг почувствовала, как на душе легло тяжелое бремя. "Да нахрен с ним, может, стоит просто сбежать?" – прошептала она, уже представляя, как дерзко покидает этот серый мир. В её сердце разгорелось пламя, и, поднимаясь, она с готовностью шагнула навстречу жизни. Ей не нужны были никакие фальшивые улыбки, лишь свобода и возможность быть собой. Бляха, она заслуживала этого! И, стиснув зубы, уверенно направилась в неизвестность, где ждала её настоящая сказка."`;
+  let badWords = ["нахрен", "черт", "бляха"];
+
+  function rosCumNadzor(anyText, uncensoredWordsArr) {
+    uncensoredWordsArr.forEach((element) => {
+      let re = new RegExp(element, "g");
+      anyText = anyText.replace(re, "#");
+    });
+    return anyText;
+  }
+
+  console.log(rosCumNadzor(anyText, badWords));
 }
